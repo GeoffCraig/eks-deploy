@@ -2,8 +2,14 @@ name: EKS Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
   workflow_dispatch:
+    inputs:
+      reason:
+        type: string
+        default: Wanted to
+        required: true
 
 jobs:
   build:
