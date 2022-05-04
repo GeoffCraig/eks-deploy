@@ -1,0 +1,22 @@
+name: EKS Deploy
+
+on:
+  # push:
+  #   branches: 
+  #     - main
+  workflow_dispatch:
+    inputs:
+      reason:
+        type: string
+        default: Wanted to
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: ls output
+      run: ls
+
