@@ -19,4 +19,7 @@ jobs:
 
     - name: ls output
       run: ls -R
+  
+    - name: I got a secret
+      run: echo ${{ secrets.MY_COOL_SECRET }}
 
