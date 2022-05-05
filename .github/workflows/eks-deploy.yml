@@ -30,4 +30,14 @@ jobs:
         sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
         sudo apt-get update && sudo apt-get install terraform
         terraform -help
-        
+    
+    - name: Terraform Init
+      env: 
+        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+      run: |
+        cd ./terraform
+        terraform init
+
+
+
