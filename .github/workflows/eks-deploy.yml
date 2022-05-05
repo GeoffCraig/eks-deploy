@@ -45,7 +45,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
       run: |
         cd ./terraform
-        terraform plan
+        terraform plan -var-file ./terraform.tfvars
 
 
 
