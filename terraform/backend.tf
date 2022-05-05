@@ -7,3 +7,7 @@ terraform {
         dynamodb_table = "terraform_state_builder_lock"
     }
 }
+
+provider "aws" {
+  region = "us-east-2"
+}
