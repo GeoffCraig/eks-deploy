@@ -39,5 +39,11 @@ jobs:
         cd ./terraform
         terraform init
 
+    - name: Terraform Plan
+      env: 
+        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+      run: terraform plan
+
 
 
