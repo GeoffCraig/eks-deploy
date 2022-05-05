@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Terraform Apply:
+  Terraform_Apply:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
