@@ -1,9 +1,6 @@
 name: EKS Deploy TF Apply
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
