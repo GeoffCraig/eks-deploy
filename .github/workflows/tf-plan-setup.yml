@@ -1,4 +1,4 @@
-name: EKS Deploy TF Apply with HC terraform-setup
+name: EKS Deploy TF Plan with HC terraform-setup
 
 on:
   workflow_dispatch:
@@ -28,9 +28,3 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
         AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
       run: terraform plan
-
-    - name: Terraform Apply
-      env:
-        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
-        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
-      run: terraform apply -auto-approve
