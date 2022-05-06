@@ -5,7 +5,9 @@ on:
 
 jobs:
   Terraform_Plan:
-    container: hashicorp/terrform
+    runs-on: ubuntu-latest
+    container: 
+      image: hashicorp/terraform
     steps:
     - uses: actions/checkout@v3
 
