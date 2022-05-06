@@ -1,4 +1,4 @@
-name: EKS Deploy TF Plan with HC terraform-setup
+name: EKS Deploy TF Plan with HC terraform-setup and container
 
 on:
   workflow_dispatch:
