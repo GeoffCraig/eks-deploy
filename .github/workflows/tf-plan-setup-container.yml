@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: hashicorp/terraform
+      defaults:
+        run:
+          shell: bash
+          working-directory: terraform
     steps:
     - uses: actions/checkout@v3
 
