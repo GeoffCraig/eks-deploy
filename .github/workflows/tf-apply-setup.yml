@@ -12,15 +12,16 @@ jobs:
 
     - run: terraform -help
     - run: ls -R
+    - run: cd ./terraform
 
-    # - name: Terraform Init
-    #   env:
-    #     AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
-    #     AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
-    #   run: terraform init
+    - name: Terraform Init
+      env:
+        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+      run: terraform init
 
-    # - name: Terraform Plan
-    #   env:
-    #     AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
-    #     AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
-    #   run: terraform plan
+    - name: Terraform Plan
+      env:
+        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+      run: terraform plan
