@@ -1,0 +1,25 @@
+name: EKS Deploy TF Plan with HC terraform-setup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Terraform_Plan:
+    containter: hashicorp/terrform
+    steps:
+    - uses: actions/checkout@v3
+
+    - run: terraform -help
+    - run: ls -R
+
+    # - name: Terraform Init
+    #   env:
+    #     AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+    #     AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+    #   run: terraform init
+
+    # - name: Terraform Plan
+    #   env:
+    #     AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+    #     AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+    #   run: terraform plan
