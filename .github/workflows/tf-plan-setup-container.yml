@@ -5,7 +5,7 @@ on:
 
 jobs:
   Terraform_Plan:
-    containter: hashicorp/terrform
+    container: hashicorp/terrform
     steps:
     - uses: actions/checkout@v3
 
