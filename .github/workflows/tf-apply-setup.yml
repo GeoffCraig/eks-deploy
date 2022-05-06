@@ -16,7 +16,6 @@ jobs:
 
     - run: terraform -help
     - run: ls -R
-    - run: cd ./terraform
 
     - name: Terraform Init
       env:
