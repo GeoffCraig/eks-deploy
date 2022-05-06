@@ -1,0 +1,23 @@
+name: EKS Deploy TF Apply with HC terraform-setup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Terraform_Plan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: hashicorp/setup-terraform@v2
+
+    - name: Terraform Init
+      env:
+        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+      run: terraform init
+
+    - name: Terraform Plan
+      env:
+        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+      run: terraform plan
