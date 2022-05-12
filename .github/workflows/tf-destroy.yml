@@ -1,0 +1,46 @@
+name: EKS Deploy TF Plan
+
+on:
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+
+jobs:
+  Terraform_Plan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: ls output
+      run: ls -R
+  
+    - name: I got a secret
+      run: echo ${{ secrets.MY_COOL_SECRET }} | sed 's/./& /g'
+
+    - name: Install Terraform
+      run: |
+        sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+        sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+        sudo apt-get update && sudo apt-get install terraform
+        terraform -help
+    
+    - name: Terraform Init
+      env: 
+        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+      run: |
+        cd ./terraform
+        terraform init
+
+    - name: Terraform Destroy
+      env: 
+        AWS_ACCESS_KEY_ID: ${{secrets.TF_AK}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.TF_SAK}}
+      run: |
+        cd ./terraform
+        terraform destroy -var-file ./terraform.tfvars -auto-approve
+
+
+
