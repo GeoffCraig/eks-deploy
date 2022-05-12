@@ -5,9 +5,9 @@ on:
 
 jobs:
   Docker_Build_Publish:
-  defaults:
+    defaults:
       run:
-         working-directory: whyhello-nginx
+          working-directory: whyhello-nginx
     steps:
       - name: QEMU action
         uses: docker/setup-qemu-action@v2
