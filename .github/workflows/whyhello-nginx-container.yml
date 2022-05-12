@@ -25,5 +25,6 @@ jobs:
     - name: Put that thing up there!
       uses: docker/build-push-action@v3
       with:
+        context: "{{defaultContext}}:whyhello-nginx"
         push: true
         tags: geoffcraig/whyhellonginx:${{ github.sha }}
