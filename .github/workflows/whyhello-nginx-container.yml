@@ -1,0 +1,28 @@
+name: Build and push whyhellonginx
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Docker_Build_Publish:
+  defaults:
+      run:
+         working-directory: whyhello-nginx
+    steps:
+      - name: QEMU action
+        uses: docker/setup-qemu-action@v2
+
+      - name: Docker with BuildX
+        uses: docker/setup-buildx-action@v2
+
+      - name: Get me to DockerHub!
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DHU }}
+          password: ${{ secrets.DHP }}
+
+      - name: Put that thing up there!
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: geoffcraig/whyhellonginx:${{ github.sha }}
