@@ -1,4 +1,4 @@
-resource "aws_subnets" "eks_subnets" {
+resource "aws_subnet" "eks_subnets" {
     for_each = var.subnets
     
     vpc_id = aws_vpc.eks_dev_vpc.id
