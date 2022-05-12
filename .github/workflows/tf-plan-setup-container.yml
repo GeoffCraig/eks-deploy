@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: hashicorp/terraform
-    
+    steps:
     - uses: actions/checkout@v3
 
     - run: terraform -help
