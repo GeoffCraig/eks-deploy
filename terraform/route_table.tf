@@ -9,9 +9,10 @@ resource "aws_route_table" "route_table" {
       nat_gateway = aws_nat_gateway.nat_gateway[each.key].id
     }
   }
-
-
-  tags = {
-    Name = each.key
+  dynamic "tags" {
+    for_each = aws_subnet.eks_subnets
+    content {
+      Name = each.key
+    }
   }
 }
