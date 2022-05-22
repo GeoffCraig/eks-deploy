@@ -1,6 +1,6 @@
 resource "aws_route_table" "route_table" {
   for_each = aws_subnet.eks_subnets
-  vpc_id = aws_vpc.eks_dev_vpc
+  vpc_id = aws_vpc.eks_dev_vpc.id
   
   route {
       cidr_block = "0.0.0.0/0"
